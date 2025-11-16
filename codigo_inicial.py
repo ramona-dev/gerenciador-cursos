@@ -51,7 +51,12 @@ class Turmas:
         def criar_turmas(self):
             pass
 class configuracoes:
-        def __init__(self, 
+        def __init__(self, nota_minima, frequencia_minima, top_n_alunos, limite turmas):
+                self.nota_minima = nota_minima	
+                self.frequencia_minima = frequencia_minima
+                self.top_n_alunos = top_n_alunos
+                self.limite_turmas = limite_turmas
+        def carregar_arquivo(self)	
 
 
 
