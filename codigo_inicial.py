@@ -11,6 +11,12 @@ class Aluno:
             # media ponderada simples com sabe no historico
         def calcular_sit_matricula(self):
             pass
+                
+class Professor:
+        def __init__ (self, matricula_prof, historico)
+        self.matricula_prof = matricula_prof
+        self.historico = historico
+
 
 class Cursos:
      def _init_ (self, codigo_curso, nome, carga_horaria, lista_requisitos, disciplinas):
@@ -44,6 +50,11 @@ class Turmas:
             pass
         def criar_turmas(self):
             pass
+class configuracoes:
+        def __init__(self, 
+
+
+
 
 
 
