@@ -13,30 +13,59 @@ O objetivo deste sistema é fornecer uma plataforma simples e eficiente para ges
 
 ## Estrutura de classes planejada
 🧍 Pessoa (classe base)
+
 Responsabilidade: representar qualquer pessoa da instituição (características comuns).
+
 Atributos: nome, email
+
 Métodos: nenhum obrigatório (podem ser adicionados conforme o sistema evoluir)
 
 🎓 Aluno (herda de Pessoa)
+
 Responsabilidade: representar um aluno e suas informações acadêmicas.
+
 Atributos: matricula, historico (notas e disciplinas cursadas), frequencia
+
 Métodos: calcular_cr() – calcula o coeficiente de rendimento
 pode_matricular(turma) – verifica se pode se matricular em uma turma
 adicionar_nota()
 atualizar_frequencia()
 
 👨‍🏫 Professor (herda de Pessoa)
+
 Responsabilidade: armazenar dados de professores.
+
 Atributos: matricula_prof, historico (disciplinas ministradas)
+
 Métodos:lançar_nota()
 registrar_frequencia()
 
 🏫 Curso
+
 Responsabilidade: representar um curso e suas características.
 
 Atributos: codigo, nome, carga_horaria, prerequisitos, disciplinas
 
 Métodos: calcular_carga_total()
+
+👥 Turma
+
+Responsabilidade: representar turmas ofertadas e gerenciar matrículas.
+
+Atributos: id_turma, curso, periodo, horario, sala, capacidade, alunos_matriculados
+
+Métodos:matricular(aluno)
+remover_aluno(aluno)
+verificar_vagas()
+verificar_conflito_horario(aluno)
+fechar_turma()
+
+⚙️ Configuracoes
+
+Responsabilidade: regras globais do sistema.
+
+Atributos: nota_minima_aprovacao, frequencia_minima, data_limite_trancamento, max_turmas_por_aluno, top_n_alunos
+Métodos: carregar_arquivo()
 
 # UML textual 
 ### Pessoa
