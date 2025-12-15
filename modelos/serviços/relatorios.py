@@ -1,0 +1,1 @@
+# Funções para taxa de aprovação, distribuição de notas, ranking de CR

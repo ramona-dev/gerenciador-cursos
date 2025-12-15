@@ -1,0 +1,1 @@
+# CRUD centralizado para salvar, buscar, atualizar e excluir cursos, turmas e alunos

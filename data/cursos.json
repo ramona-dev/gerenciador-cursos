@@ -1,0 +1,16 @@
+{
+  "CSI001": {
+    "codigo": "CSI001",
+    "nome": "Algoritmos",
+    "carga_horaria": 60,
+    "pre_requisitos": []
+  },
+  "CSI002": {
+    "codigo": "CSI002",
+    "nome": "Estruturas de Dados",
+    "carga_horaria": 60,
+    "pre_requisitos": [
+      "CSI001"
+    ]
+  }
+}
