@@ -1,6 +1,0 @@
-configurações = {
-  "nota_minima": 7.0,
-  "frequencia_minima": 75,
-  "top_n_alunos": 10,
-  "data_limite_trancamento": "2025-04-01",
-  "limite_turmas": 5 }

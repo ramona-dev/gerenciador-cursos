@@ -31,15 +31,6 @@ pode_matricular(turma) – verifica se pode se matricular em uma turma
 adicionar_nota()
 atualizar_frequencia()
 
-👨‍🏫 Professor (herda de Pessoa)
-
-Responsabilidade: armazenar dados de professores.
-
-Atributos: matricula_prof, historico (disciplinas ministradas)
-
-Métodos:lançar_nota()
-registrar_frequencia()
-
 🏫 Curso
 
 Responsabilidade: representar um curso e suas características.
