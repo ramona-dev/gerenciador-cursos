@@ -33,23 +33,33 @@
             "curso_codigo": "C001",
             "semestre": "2025.2",
             "dias_horarios": {
-                "seg": [
-                    [
-                        480,
-                        600
-                    ]
-                ],
-                "qua": [
-                    [
-                        600,
-                        720
-                    ]
-                ]
+                "seg": [],
+                "qua": []
             },
             "vagas": 40,
             "local": "Sala 101",
             "aberta": true
+        },
+        {
+            "id": "345",
+            "curso_codigo": "234",
+            "semestre": "3043",
+            "dias_horarios": {
+                "ter": []
+            },
+            "vagas": 40,
+            "local": "biblioteca",
+            "aberta": true
         }
     ],
-    "matriculas": []
+    "matriculas": [
+        {
+            "aluno": "98474",
+            "turma": "T001",
+            "nota": null,
+            "frequencia": null,
+            "ativa": null,
+            "data": "2025-12-16"
+        }
+    ]
 }
