@@ -1,4 +1,4 @@
-#  📘 Sistema Academico - README
+## 📘 Sistema Academico - README
 -----------------------
 # Descrição do projeto
 
@@ -9,10 +9,6 @@ O foco inicial é estabelecer uma estrutura limpa e modular, com classes bem def
 ** Objetivo **
 
 O objetivo deste sistema é fornecer uma plataforma simples e eficiente para gestão acadêmica, permitindo que alunos, professores e administradores consultem informações de forma rápida e organizada. O sistema possibilita criar e gerenciar cursos, turmas e matrículas, além de oferecer funcionalidades como lançamento de frequência, acompanhamento das turmas, abertura de novas turmas e visualização dos dados de alunos e professores. A proposta é entregar uma solução robusta, orientada a objetos, focada na lógica de negócios e adequada para uso em linha de comando ou API mínima.
-
-# Sistema Acadêmico - CLI
-
-Este é um sistema acadêmico de linha de comando (CLI) para gerenciar cursos, turmas, alunos e matrículas.
 
 ## 📌 Estrutura de Classes e Funções
 
