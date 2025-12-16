@@ -64,41 +64,33 @@ Este é um sistema acadêmico de linha de comando (CLI) para gerenciar cursos, t
 - `Oferta` → base para `Turma`.
 - `Relatórios` → funções de análise sem alterar dados.
 
-# Sistema Acadêmico - CLI
+## 🧬 Como clonar o repositório
 
-Sistema acadêmico de linha de comando (CLI) para gerenciar cursos, turmas, alunos e matrículas.
+## 1️⃣ Pré-requisitos
+
+- Python 3.10 ou superior
+- Git
 
 ---
 
-## 🧬 Como clonar o repositório
+## 2️⃣ Clonar o repositório
 
-1. **Verifique se tem o Git instalado**:
+```bash
+git clone https://github.com/ramona-dev/gerenciador-cursos.git
+cd gerenciador-cursos
 
-```
-git --version
-Copie o link do repositório (exemplo):
+# Windows
+python -m venv venv
+venv\Scripts\activate
 
-arduino
-Copiar código
-https://github.com/ramona-dev/gerenciador-cursos/tree/master
-Clone o repositório:
+# Linux / Mac
+python3 -m venv venv
+source venv/bin/activate
 
+Rodar o sistema
+py main.py
 
-Copiar código
-git clone https://github.com/ramona-dev/gerenciador-cursos/tree/master
-Acesse a pasta do projeto:
-
-
-Copiar código
-cd sistema-academico
-Execute o sistema:
-
-
-Copiar código
-python main.py
-📌 Estrutura UML Resumida
-text
-Copiar código
+Estrutura UML resumida do sistema
       +---------+
       | Pessoa  |
       +---------+
@@ -127,17 +119,3 @@ Copiar código
 
 Curso  ----------------> Turma
 Relatorios ------------> Aluno / Turma / Matricula
-Explicações rápidas:
-
-Pessoa → superclasse de Aluno.
-
-Aluno → possui 1 ou mais Matricula.
-
-Matricula → vincula Aluno a 1 Turma.
-
-Turma → herda de Oferta.
-
-Curso → associado à Turma (pré-requisitos).
-
-Relatórios → acessam dados de Aluno, Turma e Matricula.
-
