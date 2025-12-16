@@ -1,148 +1,143 @@
-#  📘 LuPOO - README
+#  📘 Sistema Academico - README
 -----------------------
 # Descrição do projeto
 
-O **LuPOO** é um sistema acadêmico simples utilizando Orientação a Objetos em Python. O sistema irá representar entidades como Alunos, Cursos, Turmas, Professores e Configurações, fornecendo uma base sólida para gerenciamento de matrículas, cálculo de CR, controle de frequência, requisitos de curso, entre outros.
+O É um sistema acadêmico simples utilizando Orientação a Objetos em Python. O sistema irá representar entidades como Alunos, Cursos, Turmas, Professores e Configurações, fornecendo uma base sólida para gerenciamento de matrículas, cálculo de CR, controle de frequência, requisitos de curso, entre outros.
 
 O foco inicial é estabelecer uma estrutura limpa e modular, com classes bem definidas e responsabilidades claras, seguindo boas práticas de POO
 
-**Objetivo**
+** Objetivo **
 
 O objetivo deste sistema é fornecer uma plataforma simples e eficiente para gestão acadêmica, permitindo que alunos, professores e administradores consultem informações de forma rápida e organizada. O sistema possibilita criar e gerenciar cursos, turmas e matrículas, além de oferecer funcionalidades como lançamento de frequência, acompanhamento das turmas, abertura de novas turmas e visualização dos dados de alunos e professores. A proposta é entregar uma solução robusta, orientada a objetos, focada na lógica de negócios e adequada para uso em linha de comando ou API mínima.
 
+# Sistema Acadêmico - CLI
 
-## Estrutura de classes planejada
-🧍 Pessoa (classe base)
+Este é um sistema acadêmico de linha de comando (CLI) para gerenciar cursos, turmas, alunos e matrículas.
 
-Responsabilidade: representar qualquer pessoa da instituição (características comuns).
+## 📌 Estrutura de Classes e Funções
 
-Atributos: nome, email
+### 1. Pessoa (`pessoa.py`)
+- Classe base para qualquer pessoa no sistema.
+- Armazena **nome** e **email**.
+- Valida dados.
+- Superclasse de `Aluno`.
 
-Métodos: nenhum obrigatório (podem ser adicionados conforme o sistema evoluir)
+### 2. Aluno (`aluno.py`)
+- Herda de `Pessoa`.
+- Armazena **matrícula** e **histórico** de disciplinas.
+- Calcula **CR (Coeficiente de Rendimento)**.
+- Verifica aprovação em cursos e lista turmas matriculadas.
 
-🎓 Aluno (herda de Pessoa)
+### 3. Curso (`curso.py`)
+- Representa um curso da instituição.
+- Guarda **código**, **nome**, **carga horária** e **pré-requisitos**.
+- Valida se o aluno pode cursar (pré-requisitos).
 
-Responsabilidade: representar um aluno e suas informações acadêmicas.
+### 4. Oferta (`oferta.py`)
+- Classe base para ofertas acadêmicas (turmas).
+- Armazena **semestre**, **vagas**, **local** e status (aberta/fechada).
+- Superclasse de `Turma`.
 
-Atributos: matricula, historico (notas e disciplinas cursadas), frequencia
+### 5. Turma (`turma.py`)
+- Herda de `Oferta`.
+- Representa uma turma específica.
+- Controla **curso**, **id da turma**, **horários**, **local** e **matrículas**.
+- Valida **choque de horários** e regras de matrícula.
 
-Métodos: calcular_cr() – calcula o coeficiente de rendimento
-pode_matricular(turma) – verifica se pode se matricular em uma turma
-adicionar_nota()
-atualizar_frequencia()
+### 6. Matricula (`matricula.py`)
+- Representa matrícula de aluno em turma.
+- Armazena **aluno**, **turma**, **nota**, **frequência**, **data** e status.
+- Métodos para **lançar nota/frequência**, **trancar** e verificar **situação** (CURSANDO/APROVADO/REPROVADO/TRANCADA).
 
-🏫 Curso
+### 7. Relatórios (`relatorios.py`)
+- Funções para gerar estatísticas acadêmicas:
+  - Alunos por turma.
+  - Taxa de aprovação por curso/turma.
+  - Distribuição de notas.
+  - Alunos em risco.
+  - Ranking por CR.
 
-Responsabilidade: representar um curso e suas características.
+## 🚀 Resumo de Relações
+- `Pessoa` → base para `Aluno`.
+- `Aluno` ↔ `Matricula` ↔ `Turma`.
+- `Curso` → definido em `Turma` e usado para validação de pré-requisitos.
+- `Oferta` → base para `Turma`.
+- `Relatórios` → funções de análise sem alterar dados.
 
-Atributos: codigo, nome, carga_horaria, prerequisitos, disciplinas
+# Sistema Acadêmico - CLI
 
-Métodos: calcular_carga_total()
+Sistema acadêmico de linha de comando (CLI) para gerenciar cursos, turmas, alunos e matrículas.
 
-👥 Turma
+---
 
-Responsabilidade: representar turmas ofertadas e gerenciar matrículas.
+## 🧬 Como clonar o repositório
 
-Atributos: id_turma, curso, periodo, horario, sala, capacidade, alunos_matriculados
+1. **Verifique se tem o Git instalado**:
 
-Métodos:matricular(aluno)
-remover_aluno(aluno)
-verificar_vagas()
-verificar_conflito_horario(aluno)
-fechar_turma()
+```
+git --version
+Copie o link do repositório (exemplo):
 
-⚙️ Configuracoes
-
-Responsabilidade: regras globais do sistema.
-
-Atributos: nota_minima_aprovacao, frequencia_minima, data_limite_trancamento, max_turmas_por_aluno, top_n_alunos
-Métodos: carregar_arquivo()
-
-# UML textual 
-### Pessoa
-**Responsabilidade:** representar qualquer pessoa da instituição (características comuns).
-#### Atributos
-| Atributo | Tipo | Descrição |                                        
-|---------|------|-----------|
-| nome | str | Nome completo |
-| email | str | Email da pessoa |
-
-#### Métodos
-| Método | Descrição |
-|--------|-----------|
-| `__str__()` | Representação textual |
-
-
-### Aluno (herda de Pessoa)
-**Responsabilidade:** representar um aluno e suas informações acadêmicas.
-#### Atributos
-| Atributo | Tipo | Descrição |
-|---------|------|-----------|
-| matricula | str | Código do aluno |
-| historico | list | Lista de disciplinas e notas |
-| frequencia | float | Frequência geral |
-
-#### Métodos
-| Método | Descrição |
-|--------|-----------|
-| calcular_cr() | Calcula o coeficiente de rendimento |
-| validar_matricula() | Valida matrícula conforme regras |
+arduino
+Copiar código
+https://github.com/ramona-dev/gerenciador-cursos/tree/master
+Clone o repositório:
 
 
-### Professor 
-| Atributo       | Tipo | Descrição               |
-| -------------- | ---- | ----------------------- |
-| matricula_prof | str  | Registro do professor   |
-| historico      | list | Disciplinas ministradas |
+Copiar código
+git clone https://github.com/ramona-dev/gerenciador-cursos/tree/master
+Acesse a pasta do projeto:
 
 
-### Turma
-
-#### Atributos
-| Atributo | Tipo | Descrição |
-|----------|------|------------|
-| id_turma | str | Identificador da turma |
-| codigo_curso | int | Identificador do curso |
-| alunos matriculados | str | alunos matriculados |
-| horario | str | Horário |
-| sala | str | Sala |
-| capacidade | int | Máximo de alunos |
-
-### Curso 
-
-| Atributo      | Tipo | Descrição                       |
-| ------------- | ---- | ------------------------------- |
-| codigo        | str  | Identificador único do curso    |
-| nome          | str  | Nome do curso                   |
-| carga_horaria | int  | Carga horária total             |
-| prerequisitos | list | Lista de cursos necessários     |
-| disciplinas   | list | Disciplinas que compõem o curso |
-
-| Método                 | Descrição                                     |
-| ---------------------- | --------------------------------------------- |
-| calcular_carga_total() | Soma a carga horária das disciplinas do curso |
-
-### Configuraçoes 
-
-| Atributo          | Tipo  | Descrição                       |
-| ----------------- | ----- | ------------------------------- |
-| nota_minima       | float | Nota mínima para aprovação      |
-| frequencia_minima | int   | Percentual mínimo de frequência |
-| limite_turmas     | int   | Máximo de turmas por aluno      |
-| top_n_alunos      | int   | Quantidade para ranking         |
-
-| Método             | Descrição                             |
-| ------------------ | ------------------------------------- |
-| carregar_arquivo() | Carrega configuração a partir de JSON |
+Copiar código
+cd sistema-academico
+Execute o sistema:
 
 
+Copiar código
+python main.py
+📌 Estrutura UML Resumida
+text
+Copiar código
+      +---------+
+      | Pessoa  |
+      +---------+
+           ^
+           |
+       +-------+
+       | Aluno |
+       +-------+
+           |
+           | 1..*  (matrículas)
+           v
+      +-----------+
+      | Matricula |
+      +-----------+
+           |
+           | 1       1
+           v
+        +-------+
+        | Turma |
+        +-------+
+           ^
+           |
+      +--------+
+      | Oferta |
+      +--------+
 
+Curso  ----------------> Turma
+Relatorios ------------> Aluno / Turma / Matricula
+Explicações rápidas:
 
+Pessoa → superclasse de Aluno.
 
+Aluno → possui 1 ou mais Matricula.
 
+Matricula → vincula Aluno a 1 Turma.
 
+Turma → herda de Oferta.
 
+Curso → associado à Turma (pré-requisitos).
 
-
-
+Relatórios → acessam dados de Aluno, Turma e Matricula.
 
